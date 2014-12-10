@@ -5,15 +5,16 @@
 <title>ヘッダーのidによってCSSを出し分け</title>
 <link rel="stylesheet" type="text/css" href="style.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="device_tab.js"></script>
 </head>
 <body>
 
-<header><h1 id="tab">ヘッダーのidによってCSSを出し分け</h1></header>
+<header><h1 id="tab">読み込んだjsの変数によってCSSを出し分け</h1></header>
 
 <!-- ▼Contents Start -->
 <section>
 <p>
-h1のidによって、CSSを出し分けてます。<br><br>
+CSS出し分け。<br><br>
 #spなら背景色：ピンク<br>
 #tabなら背景色：水色<br>
 #pcなら背景色：黄色<br>
@@ -22,35 +23,21 @@ h1のidによって、CSSを出し分けてます。<br><br>
 </section>
 
 <script type="text/javascript">
-$(function(){
-	//要素の数をカウント
-	var numsp = $(this).find('header h1#sp').length;
-	var numtab = $(this).find('header h1#tab').length;
-	var numpc = $(this).find('header h1#pc').length;
-	
-	if(numsp>0){ //SPの場合
+$(function(){	
 		var css=document.createElement("link");
 		css.setAttribute("rel","stylesheet");
 		css.setAttribute("type","text/css");
+	if(device=='sp'){ //SPの場合
 		css.setAttribute("href","sp.css");
-		document.getElementsByTagName("head")[0].appendChild(css);
-	}else if(numtab>0){ //Tabの場合
-		var css=document.createElement("link");
-		css.setAttribute("rel","stylesheet");
-		css.setAttribute("type","text/css");
+	}else if(device=='tab'){ //Tabの場合
 		css.setAttribute("href","tab.css");
-		document.getElementsByTagName("head")[0].appendChild(css);
-	}else if(numpc>0){  //PCの場合
-		var css=document.createElement("link");
-		css.setAttribute("rel","stylesheet");
-		css.setAttribute("type","text/css");
+	}else if(device=='pc'){  //PCの場合
 		css.setAttribute("href","pc.css");
-		document.getElementsByTagName("head")[0].appendChild(css);
 	}
+	document.getElementsByTagName("head")[0].appendChild(css);
 
 });
 </script>
 <!-- ▲Contents End -->
-
 </body>
 </html>
