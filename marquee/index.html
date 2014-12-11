@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>マーキー</title>
+<!-- JS -->
+<script type="text/javascript">
+<!--
+var msg = "マーキーサンプルマーキーサンプルマーキーサンプルマーキーサンプル";
+function JsMarquee(id)
+{
+	if(document.getElementById){
+		var msgarea = document.getElementById(id);
+		if (msgarea.firstChild && msgarea.firstChild.nodeName == "#text") {
+			msgarea.firstChild.nodeValue = msg;
+		} else if (document.all) {
+			msgarea.innerHTML = msg;
+		}
+	} else if(document.layers){
+		msg2=msg.substring(0,40);
+		document.layers[id].visibility='hidden';
+		document.layers[id].document.open();
+		document.layers[id].document.write(msg2);
+		document.layers[id].document.close();
+		document.layers[id].visibility='show';
+	}
+	msg=msg.substring(2,msg.length)+msg.substring(0,2);
+	var cmd = "JsMarquee('" + id + "')";
+	setTimeout(cmd,500);
+}
+// -->
+</script>
+
+<style type="text/css">
+#marqueeArea {
+width:500px;
+padding:0.5em 0;
+margin-bottom:15px;
+overflow:hidden;
+background-color:#f6f6f6;
+margin-bottom:10px;
+position:relative;
+}
+#marqueeArea_js{
+width:500px;
+padding:0.5em 0;
+margin-bottom:15px;
+text-align: center;
+ height: 1em;
+ background-color:#f6f6f6;
+ color: black;
+ width: 500px;
+ overflow: hidden;
+ padding:0.5em 0;
+ 
+}
+#marqueeArea_css {
+width:500px;
+padding:0.5em 0;
+margin-bottom:15px;
+overflow:hidden;
+background-color:#f6f6f6;
+margin-bottom:10px;
+position:relative;
+}
+#marqueeArea_css p:after {
+content:"";
+white-space:nowrap;
+padding-right:50px;
+}
+#marqueeArea_css p {
+margin:0;
+padding-left:500px;
+display:inline-block;
+white-space:nowrap;
+	-webkit-animation-name:marquee;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-duration:10s;
+	-webkit-animation-iteration-count:infinite;
+	-moz-animation-name:marquee;
+	-moz-animation-timing-function:linear;
+	-moz-animation-duration:10s;
+	-moz-animation-iteration-count:infinite;
+	-ms-animation-name:marquee;
+	-ms-animation-timing-function:linear;
+	-ms-animation-duration:10s;
+	-ms-animation-iteration-count:infinite;
+	-o-animation-name:marquee;
+	-o-animation-timing-function:linear;
+	-o-animation-duration:10s;
+	-o-animation-iteration-count:infinite;
+	animation-name:marquee;
+	animation-timing-function:linear;
+	animation-duration:10s;
+	animation-iteration-count:infinite;
+}
+@-webkit-keyframes marquee {
+  from   { -webkit-transform: translate(0%);}
+  99%,to { -webkit-transform: translate(-100%);}
+}
+@-moz-keyframes marquee {
+  from   { -moz-transform: translate(0%);}
+  99%,to { -moz-transform: translate(-100%);}
+}
+@-ms-keyframes marquee {
+  from   { -ms-transform: translate(0%);}
+  99%,to { -ms-transform: translate(-100%);}
+}
+@-o-keyframes marquee {
+  from   { -o-transform: translate(0%);}
+  99%,to { -o-transform: translate(-100%);}
+}
+@keyframes marquee {
+  from   { transform: translate(0%);}
+  99%,to { transform: translate(-100%);}
+}
+</style>
+</head>
+<body style="margin:0;padding:0;" onLoad="JsMarquee('marqueeArea_js')">
+
+<!-- marguee -->
+<div id="marqueeArea">
+<marquee>マーキーサンプルマーキーサンプルマーキーサンプルマーキーサンプル</marquee>
+</div>
+
+<!-- js -->
+<div id="marqueeArea_js">
+<script language="JavaScript">
+if(document.layers){
+    var mgn = w*0.15;
+}
+</script>
+</div>
+
+<!-- css -->
+<div id="marqueeArea_css">
+<p>マーキーサンプルマーキーサンプルマーキーサンプルマーキーサンプル</p>
+</div>
+
+
+</body>
+</html>
