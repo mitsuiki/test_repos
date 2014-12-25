@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>無題ドキュメント</title>
+<link rel="stylesheet" href="style.css" type="text/css" media="screen">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="jq_tabPlugin.js"></script>
+<script>
+$(function(){
+	$("#tab").tabPlugin({speed:1500,tabaction:'slideDown'});
+});
+</script>
+</head>
+<body>
+<div id="tab">
+<ul id="switchtab">
+<li><a href="#menu1">メニュー1</a></li><!-- 
+--><li><a href="#menu2">メニュー2</a></li><!-- 
+--><li><a href="#menu3">メニュー3</a></li><!-- 
+--><li><a href="#menu4">メニュー4</a></li>
+</ul>
+<div class="tab_container">
+	<div id="menu1" class="tab_innerbx">
+	コンテンツ1<br />
+	あああああああああああああああああああああああ
+	</div>
+	<div id="menu2" class="tab_innerbx">
+	コンテンツ2<br />
+	いいいいいいいいいいいいいいいいいいいいいい<br />
+	いいいいいいいいいいいいいいいいいいいいいいい
+	</div>
+	<div id="menu3" class="tab_innerbx">
+	コンテンツ3<br />
+	うううううううううううううううううううううう<br />
+	ううううううううううううううううううううううう<br />
+	うううううううううううううううううう
+	</div>
+	<div id="menu4" class="tab_innerbx">
+	コンテンツ4<br />
+	ええええええええ
+	</div>
+<!-- /tab_container --></div>
+<!-- /#tab --></div>
+</body>
+</html>
